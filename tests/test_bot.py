@@ -11,12 +11,14 @@ prawWords = ['praw', 'reddit_api', 'mellort']
 while True:
 	subreddit = r.get_subreddit('learnpython') #change this to umw_cpsc for actual thing
 	for submissions in subreddit.get_hot(limit = 10):
+		submission = r.get_submission(submission_id = "105aru")
 		op_text = submission.selftext.lower()
 		has_praw = any(string in op_text for string in prawWords)
 		#Test if has praw  question
 		if submission.id not in already_done and has_praw:
 			# write message to Daimon
-			msg = '[PRAW related thread](%s)' % submission.short_link
-			r.send_message('_Daimon_', 'PRAW Thread', msg)
+			#msg = '[PRAW related thread](%s)' % submission.short_link
+			#r.send_message('_Daimon_', 'PRAW Thread', msg)
+			print "It worked!"
 			already_done.append(submission.id)
 	time.sleep(1800) #do every 30mins
