@@ -27,7 +27,7 @@ except ImportError:
 	pass
 	
 r  = praw.Reddit(USER_AGENT)
-#r.login("BOT_USERNAME", "BOT_PASSWORD") 
+r.login("BOT_USERNAME", "BOT_PASSWORD") 
 subreddit = r.get_subreddit(SUBREDDIT)
 
 
